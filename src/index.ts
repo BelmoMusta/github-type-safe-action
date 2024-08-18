@@ -1,23 +1,31 @@
-import {ActionBuilder} from "./action-builder";
+import {Action} from "./action-type";
 
 function main() {
-    const actionBuilder = new ActionBuilder();
-    const action = actionBuilder
-        .name('this is my action')
-        .description('this is a description')
-        .inputs({
+    const action_: Action = {
+        name: 'action name',
+        description: 'action description',
+        inputs: [{
             name: 'input-0',
-            defaultValue: undefined,
-            description: undefined,
+            defaultValue: 'default-value',
+            description: 'description',
             required: true
         }, {
             name: 'input-1',
+            description: 'input-1 description',
             required: true,
             defaultValue: 'nothing'
-        })
-        .build();
-
-    console.log(action)
+        }],
+        outputs: [{
+            name: 'output-0',
+            description: 'output-0 description',
+            value: 'a simple value for output-0'
+        }],
+        runs: {
+            using: 'node20',
+            main:'test.js'
+        },
+    };
+    console.log(action_)
 }
 
 main();
