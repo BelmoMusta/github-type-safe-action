@@ -1,7 +1,7 @@
 {
   "name": "type-script-action",
   "version": "1.0.0",
-  "description": "",
+  "description": "Type Safe Github Action creator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "yaml": "^2.5.0"
   }
 }

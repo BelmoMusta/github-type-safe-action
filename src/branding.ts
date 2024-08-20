@@ -1,5 +1,7 @@
 export interface Branding {
-
+    /**
+     * The background color of the badge.
+     */
     color: "white" |
         "black" |
         "yellow" |
@@ -9,6 +11,9 @@ export interface Branding {
         "red" |
         "purple" |
         "gray-dark",
+    /**
+     * The name of the Feather icon to use.
+     */
     icon: "activity" |
         "airplay" |
         "alert-circle" |
