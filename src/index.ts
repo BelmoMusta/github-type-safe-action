@@ -42,8 +42,8 @@ function main() {
                     "working-directory": '.',
                     if: 'true',
                     env: {
-                        'LOL': 'test',
-                        1: 'l'
+                        'KEY': 'test',
+                        'PROPERTY': 'value'
                     },
                     run: 'echo 1\n tlata rb3a khmsa \n setta',
                     shell: "bash"
