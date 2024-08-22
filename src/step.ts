@@ -1,4 +1,5 @@
 import {KeyValue} from "./key-value";
+import {PredefinedActions} from "./predefined-actions";
 
 interface CommonStep {
     /**
@@ -49,7 +50,7 @@ export interface StepUses extends CommonStep {
     /**
      * Selects an action to run as part of a step in your job.
      */
-    uses: string
+    uses: string | PredefinedActions
     /**
      * A map of the input parameters defined by the action. Each input parameter is a key/value pair.
      * Input parameters are set as environment variables.

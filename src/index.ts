@@ -47,6 +47,9 @@ function main() {
                     },
                     run: 'echo 1\n tlata rb3a khmsa \n setta',
                     shell: "bash"
+                }, {
+                    uses: "actions/first-interaction@v1",
+                    id: '2'
                 }
             ],
         },
