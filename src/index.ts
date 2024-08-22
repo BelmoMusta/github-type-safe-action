@@ -49,7 +49,9 @@ function main() {
                     shell: "bash"
                 }, {
                     uses: "actions/first-interaction@v1",
-                    id: '2'
+                    id: '2',
+                    "continue-on-error": true,
+                    "working-directory":'.'
                 }
             ],
         },
