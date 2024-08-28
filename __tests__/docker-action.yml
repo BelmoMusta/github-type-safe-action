@@ -1,0 +1,19 @@
+name: action name
+description: action description
+inputs:
+  input-0:
+    default: default-value
+    description: description
+    required: true
+  input-1:
+    description: input-1 description
+    required: true
+    default: nothing
+outputs:
+  output-0:
+    description: output-0 description
+    value: a simple value for output-0
+runs:
+  using: docker
+  image: alpine:18
+  entrypoint: bash -c ls -a /

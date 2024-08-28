@@ -1,0 +1,5 @@
+name: action name
+description: action description
+runs:
+  using: node20
+  main: test.js
