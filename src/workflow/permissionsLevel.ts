@@ -1,0 +1,1 @@
+export type PermissionsLevel = "read" | "write" | "none";

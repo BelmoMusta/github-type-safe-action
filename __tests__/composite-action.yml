@@ -24,7 +24,7 @@ runs:
       env:
         KEY: test
         PROPERTY: value
-      run: |-
+      run: |
         echo 1
          tlata rb3a khmsa 
          setta
