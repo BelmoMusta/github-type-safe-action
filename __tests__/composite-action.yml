@@ -24,10 +24,10 @@ runs:
       env:
         KEY: test
         PROPERTY: value
-      run: |
+      run: |-
         echo 1
-         tlata rb3a khmsa 
-         setta
+        two
+        three
       shell: bash
     - uses: actions/first-interaction@v1
       id: "2"

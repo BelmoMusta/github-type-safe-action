@@ -8,21 +8,12 @@ on:
     types:
       - opened
       - unlocked
+      - opened
       - review_requested
     branches:
       - master
     paths: []
-  workflow_dispatch:
-    inputs:
-      hi:
-        description: this is an input to launch the workflow
-        required: false
-        type: environment
-        options:
-          - test
-          - build
-      hello:
-        description: I dont know
+  workflow_dispatch: {}
 jobs:
   nice-job:
     name: job-1

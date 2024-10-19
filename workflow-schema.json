@@ -1718,5 +1718,4 @@
     }
   },
   "required": ["on", "jobs"],
-  "type": "object"
-}
+  "type": "object"}

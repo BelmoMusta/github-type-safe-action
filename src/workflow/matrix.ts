@@ -1,4 +1,3 @@
-import {ExpressionSyntax} from "./expressionSyntax";
 import {Configuration} from "./configuration";
 
 /**
@@ -8,6 +7,6 @@ import {Configuration} from "./configuration";
  */
 export type Matrix =
     | {
-    [k: string]: [Configuration, ...Configuration[]] | ExpressionSyntax;
+    [k: string]: [Configuration, ...Configuration[]] | string;
 }
-    | ExpressionSyntax;
+    | string;

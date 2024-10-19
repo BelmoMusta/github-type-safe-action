@@ -1,6 +1,7 @@
-import {Action} from "../src/action";
+import {Action} from "../src/action/action";
 import YAML from 'yaml';
 import * as fs from "fs";
+
 describe('Index tests', function () {
     it('should create a js action', function () {
         const jsAction: Action = {
@@ -52,7 +53,7 @@ describe('Index tests', function () {
                             'KEY': 'test',
                             'PROPERTY': 'value'
                         },
-                        run: 'echo 1\n tlata rb3a khmsa \n setta',
+                        run: 'echo 1\ntwo\nthree',
                         shell: "bash"
                     }, {
                         uses: "actions/first-interaction@v1",
@@ -100,5 +101,4 @@ describe('Index tests', function () {
         const expected = buffer.toString('utf-8');
         const actual = YAML.stringify(compositeAction);
         expect(actual).toBe(expected);
-    });
-});
+    });});

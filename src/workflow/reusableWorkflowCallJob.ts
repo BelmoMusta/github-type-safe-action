@@ -1,7 +1,6 @@
 import {JobNeeds} from "./jobNeeds";
-import {Permissions} from "./permissions";
-import {StringContainingExpressionSyntax} from "./stringContainingExpressionSyntax";
-import {Env1} from "./env1";
+import {Permissions} from "./events/permissions";
+import {Secrets} from "./secrets";
 import {Matrix} from "./matrix";
 import {Concurrency} from "./concurrency";
 
@@ -31,11 +30,11 @@ export interface ReusableWorkflowCallJob {
         | {
         [k: string]: string | number | boolean;
     }
-        | StringContainingExpressionSyntax;
+        | string;
     /**
      * When a job is used to call a reusable workflow, you can use 'secrets' to provide a map of secrets that are passed to the called workflow. Any secrets that you pass must match the names defined in the called workflow.
      */
-    secrets?: Env1 | "inherit";
+    secrets?: Secrets | "inherit";
     /**
      * A strategy creates a build matrix for your jobs. You can define different variations of an environment to run each job in.
      */

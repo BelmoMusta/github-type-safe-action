@@ -1,14 +1,12 @@
 import {JobNeeds} from "./jobNeeds";
-import {Permissions} from "./permissions";
-import {StringContainingExpressionSyntax} from "./stringContainingExpressionSyntax";
-import {ExpressionSyntax} from "./expressionSyntax";
+import {Permissions} from "./events/permissions";
 import {WorkingDirectory} from "./workingDirectory";
 import {Shell} from "./shell";
 import {With} from "./with";
 import {Matrix} from "./matrix";
 import {Concurrency} from "./concurrency";
 import {Environment} from "./environment";
-import {Defaults1} from "./defaults1";
+import {Defaults} from "./defaults";
 import {Container} from "./container";
 import {Env} from "./env";
 
@@ -31,10 +29,10 @@ export interface NormalJob {
         | {
         group?: string;
         labels?: string | string[];
-        [k: string]: unknown;
+
     }
-        | StringContainingExpressionSyntax
-        | ExpressionSyntax;
+        | string
+        | string;
     /**
      * The environment that the job references.
      */
@@ -52,8 +50,8 @@ export interface NormalJob {
         | {
         [k: string]: string | number | boolean;
     }
-        | StringContainingExpressionSyntax;
-    defaults?: Defaults1;
+        | string;
+    defaults?: Defaults;
     /**
      * You can use the if conditional to prevent a job from running unless a condition is met. You can use any supported context and expression to create a conditional.
      * Expressions in an if conditional do not require the ${{ }} syntax. For more information, see https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions.
@@ -70,11 +68,11 @@ export interface NormalJob {
             (
                 | {
                 uses: string;
-                [k: string]: unknown;
+
             }
                 | {
                 run: string;
-                [k: string]: unknown;
+
             }
                 ) & {
             /**
@@ -116,20 +114,20 @@ export interface NormalJob {
             /**
              * Prevents a job from failing when a step fails. Set to true to allow a job to pass when this step fails.
              */
-            "continue-on-error"?: boolean | ExpressionSyntax;
+            "continue-on-error"?: boolean | string;
             /**
              * The maximum number of minutes to run the step before killing the process.
              */
-            "timeout-minutes"?: number | ExpressionSyntax;
+            "timeout-minutes"?: number | string;
         },
         ...((
             | {
             uses: string;
-            [k: string]: unknown;
+
         }
             | {
             run: string;
-            [k: string]: unknown;
+
         }
             ) & {
             /**
@@ -171,21 +169,21 @@ export interface NormalJob {
                 | {
                 [k: string]: string | number | boolean;
             }
-                | StringContainingExpressionSyntax;
+                | string;
             /**
              * Prevents a job from failing when a step fails. Set to true to allow a job to pass when this step fails.
              */
-            "continue-on-error"?: boolean | ExpressionSyntax;
+            "continue-on-error"?: boolean | string;
             /**
              * The maximum number of minutes to run the step before killing the process.
              */
-            "timeout-minutes"?: number | ExpressionSyntax;
+            "timeout-minutes"?: number | string;
         })[]
     ];
     /**
      * The maximum number of minutes to let a workflow run before GitHub automatically cancels it. Default: 360
      */
-    "timeout-minutes"?: number | ExpressionSyntax;
+    "timeout-minutes"?: number | string;
     /**
      * A strategy creates a build matrix for your jobs. You can define different variations of an environment to run each job in.
      */
@@ -203,7 +201,7 @@ export interface NormalJob {
     /**
      * Prevents a workflow run from failing when a job fails. Set to true to allow a workflow run to pass when this job fails.
      */
-    "continue-on-error"?: boolean | ExpressionSyntax;
+    "continue-on-error"?: boolean | string;
     /**
      * A container to run any steps in a job that don't already specify a container. If you have steps that use both script and container actions, the container actions will run as sibling containers on the same network with the same volume mounts.
      * If you do not set a container, all steps will run directly on the host specified by runs-on unless a step refers to an action configured to run in a container.

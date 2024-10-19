@@ -7,9 +7,14 @@ describe('Index tests', function () {
         const workflow: Workflow = {
             name: 'workflow-1',
             on: {
+                discussion_comment: {
+                    types: ["created", "edited"],
+                },
+
                 pull_request: {
                     types: ['opened', 'unlocked', 'opened', 'review_requested'],
-                    branches:['master']
+                    branches:['master'],
+                    paths: []
                 },
                 workflow_dispatch: {}
             },
@@ -28,11 +33,10 @@ describe('Index tests', function () {
                 }
             },
         };
-        const buffer: Buffer = fs.readFileSync('__tests__/js-action.yml');
+        const buffer: Buffer = fs.readFileSync('__tests__/workflow.yml');
         const expected = buffer.toString('utf-8');
         const actual = YAML.stringify(workflow);
 
         expect(actual).toBe(expected);
     });
-
 });

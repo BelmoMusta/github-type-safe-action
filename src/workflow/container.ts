@@ -1,5 +1,3 @@
-import {StringContainingExpressionSyntax} from "./stringContainingExpressionSyntax";
-
 export interface Container {
     /**
      * The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a registry name.
@@ -11,7 +9,7 @@ export interface Container {
     credentials?: {
         username?: string;
         password?: string;
-        [k: string]: unknown;
+
     };
     /**
      * Sets an array of environment variables in the container.
@@ -20,7 +18,7 @@ export interface Container {
         | {
         [k: string]: string | number | boolean;
     }
-        | StringContainingExpressionSyntax;
+        | string;
     /**
      * Sets an array of ports to expose on the container.
      *

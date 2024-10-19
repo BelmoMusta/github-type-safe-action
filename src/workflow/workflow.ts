@@ -1,8 +1,8 @@
-import {Permissions} from "./permissions";
+import {Permissions} from "./events/permissions";
 import {Defaults} from "./defaults";
 import {Concurrency} from "./concurrency";
 import {WorkflowJobs} from "./workflowJobs";
-import {WorkflowTriggeringEvent} from "./workflowTriggeringEvent";
+import {WorkflowTriggeringEvent} from "./events/workflowTriggeringEvent";
 import {Env} from "./env";
 
 export interface Workflow {
